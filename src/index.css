@@ -8,70 +8,55 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Goldensilver with Ash theme */
-    --background: 210 6% 10%;
-    --foreground: 45 25% 85%;
+    /* Dark theme portfolio colors */
+    --background: 220 13% 8%;
+    --foreground: 210 40% 98%;
 
-    --card: 210 6% 12%;
-    --card-foreground: 45 25% 85%;
+    --card: 220 13% 10%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 210 6% 12%;
-    --popover-foreground: 45 25% 85%;
+    --popover: 220 13% 10%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 45 95% 70%;
-    --primary-foreground: 210 6% 10%;
+    --primary: 263 70% 65%;
+    --primary-foreground: 210 40% 98%;
     
-    --primary-glow: 45 100% 75%;
-    --primary-dark: 45 85% 55%;
+    --primary-glow: 263 85% 75%;
+    --primary-dark: 263 60% 45%;
 
-    --secondary: 210 6% 15%;
-    --secondary-foreground: 45 25% 85%;
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 6% 15%;
-    --muted-foreground: 45 15% 65%;
+    --muted: 220 13% 12%;
+    --muted-foreground: 215.4 16.3% 65%;
 
-    --accent: 40 85% 75%;
-    --accent-foreground: 210 6% 10%;
+    --accent: 280 85% 60%;
+    --accent-foreground: 210 40% 98%;
     
-    --accent-glow: 40 100% 80%;
+    --accent-glow: 280 100% 70%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 6% 20%;
-    --input: 210 6% 15%;
-    --ring: 45 95% 70%;
+    --border: 220 13% 20%;
+    --input: 220 13% 15%;
+    --ring: 263 70% 65%;
 
     --radius: 0.75rem;
 
-    /* Goldensilver with Ash Design System */
-    --golden-primary: 45 95% 70%;
-    --golden-secondary: 40 85% 75%;
-    --silver-primary: 210 15% 70%;
-    --silver-secondary: 210 10% 60%;
-    --ash-dark: 210 6% 10%;
-    --ash-medium: 210 6% 15%;
-    --ash-light: 210 6% 20%;
-    
-    /* Custom gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--golden-primary)), hsl(var(--golden-secondary)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--silver-primary)), hsl(var(--silver-secondary)));
-    --gradient-ash: linear-gradient(135deg, hsl(var(--ash-medium)), hsl(var(--ash-dark)));
-    --gradient-diamond: conic-gradient(from 0deg, hsl(var(--golden-primary)), hsl(var(--silver-primary)), hsl(var(--golden-secondary)), hsl(var(--silver-secondary)), hsl(var(--golden-primary)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--golden-primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--primary-glow)) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--ash-medium)));
+    /* Custom portfolio colors */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--primary-glow)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(220 13% 12%));
     --gradient-glow: radial-gradient(circle, hsl(var(--primary-glow) / 0.3) 0%, transparent 70%);
     
     /* Glass morphism */
-    --glass-bg: hsl(var(--ash-medium) / 0.8);
-    --glass-border: hsl(var(--golden-primary) / 0.2);
+    --glass-bg: hsl(220 13% 10% / 0.8);
+    --glass-border: hsl(210 40% 98% / 0.1);
     
     /* Shadows and glows */
-    --shadow-golden: 0 10px 30px -10px hsl(var(--golden-primary) / 0.4);
-    --shadow-silver: 0 10px 30px -10px hsl(var(--silver-primary) / 0.3);
-    --shadow-glow-golden: 0 0 40px hsl(var(--golden-primary) / 0.5);
     --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
-    --shadow-card: 0 8px 32px hsl(var(--ash-dark) / 0.8);
+    --shadow-card: 0 8px 32px hsl(220 13% 5% / 0.8);
     --shadow-hero: 0 0 60px hsl(var(--primary) / 0.5);
     
     /* Animations */
@@ -142,9 +127,6 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     overflow-x: hidden;
-    cursor: none;
-    background: radial-gradient(ellipse at center, hsl(var(--ash-medium)) 0%, hsl(var(--ash-dark)) 100%);
-    background-attachment: fixed;
   }
   
   html {
@@ -153,48 +135,6 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  /* Custom cursor */
-  .custom-cursor {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.1s ease;
-    mix-blend-mode: difference;
-  }
-
-  .cursor-seller {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(45deg, #000 0%, #333 50%, #fff 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-  }
-
-  .cursor-seller::before {
-    content: '👔';
-    font-size: 24px;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-  }
-
-  /* Diamond pattern background */
-  .diamond-pattern {
-    background-image: 
-      linear-gradient(45deg, transparent 40%, hsl(var(--golden-primary) / 0.1) 50%, transparent 60%),
-      linear-gradient(-45deg, transparent 40%, hsl(var(--silver-primary) / 0.1) 50%, transparent 60%);
-    background-size: 60px 60px;
-    background-position: 0 0, 30px 30px;
-  }
-
   /* Glass morphism utilities */
   .glass {
     background: var(--glass-bg);
