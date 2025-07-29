@@ -27,7 +27,7 @@ function CrystalParticles() {
     <Points ref={ref} positions={particlesPosition} stride={3} frustumCulled={false}>
       <PointMaterial
         transparent
-        color="#D4AF37"
+        color="hsl(45, 95%, 70%)"
         size={0.005}
         sizeAttenuation={true}
         depthWrite={false}
@@ -42,7 +42,7 @@ const CrystalBackground = () => {
     <div className="fixed inset-0 -z-10">
       <Canvas
         camera={{ position: [0, 0, 1] }}
-        style={{ background: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)' }}
+        style={{ background: 'linear-gradient(135deg, hsl(210, 6%, 15%) 0%, hsl(210, 6%, 10%) 100%)' }}
       >
         <CrystalParticles />
       </Canvas>

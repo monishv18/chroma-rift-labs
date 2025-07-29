@@ -6,7 +6,7 @@ const RingHeroSection = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden diamond-pattern">
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
         {/* Text Content */}
         <motion.div
@@ -16,23 +16,23 @@ const RingHeroSection = () => {
           className="space-y-8"
         >
           <motion.h1
-            className="text-6xl lg:text-8xl font-thin text-white leading-tight"
+            className="text-6xl lg:text-8xl font-thin leading-tight bg-gradient-to-r from-golden-primary to-silver-primary bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Eternal
-            <span className="block text-[#D4AF37] font-light">Elegance</span>
+            Diamond
+            <span className="block bg-gradient-to-r from-silver-primary to-golden-secondary bg-clip-text text-transparent font-light">Perfection</span>
           </motion.h1>
           
           <motion.p
-            className="text-xl text-gray-300 max-w-md leading-relaxed"
+            className="text-xl text-muted-foreground max-w-md leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            Crafted with precision. Designed for perfection. 
-            A timeless symbol of luxury and sophistication.
+            Precision-cut diamonds set in golden silver perfection. 
+            A masterpiece that reflects your exceptional taste.
           </motion.p>
 
           <motion.div
@@ -42,13 +42,13 @@ const RingHeroSection = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <Button 
-              className="bg-[#D4AF37] hover:bg-[#B8941F] text-black font-semibold px-8 py-6 text-lg hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] transition-all duration-300"
+              className="bg-gradient-to-r from-golden-primary to-golden-secondary hover:shadow-glow-golden text-primary-foreground font-semibold px-8 py-6 text-lg transition-all duration-300"
             >
               Buy Now - $2,999
             </Button>
             <Button 
               variant="outline" 
-              className="border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black px-8 py-6 text-lg transition-all duration-300"
+              className="border-golden-primary text-golden-primary hover:bg-golden-primary hover:text-primary-foreground px-8 py-6 text-lg transition-all duration-300"
             >
               View Details
             </Button>
@@ -69,43 +69,53 @@ const RingHeroSection = () => {
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.3 }}
           >
-            {/* Glow Effect */}
+            {/* Diamond Glow Effect */}
             <motion.div
-              className="absolute inset-0 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#FFD700] opacity-20 blur-3xl"
+              className="absolute inset-0 rounded-full bg-gradient-diamond opacity-20 blur-3xl"
               animate={{
                 scale: isHovered ? 1.2 : 1,
                 opacity: isHovered ? 0.4 : 0.2,
+                rotate: isHovered ? 180 : 0,
               }}
               transition={{ duration: 0.3 }}
             />
             
-            {/* Ring Container */}
+            {/* Diamond Ring Container */}
             <motion.div
               className="relative w-96 h-96 rounded-full flex items-center justify-center"
               animate={{
                 rotateY: isHovered ? 360 : 0,
+                rotateZ: 360,
               }}
-              transition={{ duration: 2, ease: "easeInOut" }}
+              transition={{ 
+                rotateY: { duration: 2, ease: "easeInOut" },
+                rotateZ: { duration: 20, repeat: Infinity, ease: "linear" }
+              }}
             >
-              {/* Shimmer Effect */}
+              {/* Diamond Shimmer Effect */}
               <motion.div
-                className="absolute inset-0 rounded-full"
+                className="absolute inset-0"
                 style={{
-                  background: `linear-gradient(45deg, 
+                  background: `conic-gradient(from 0deg, 
                     transparent 30%, 
-                    rgba(212, 175, 55, 0.3) 50%, 
-                    transparent 70%)`,
+                    hsl(var(--golden-primary) / 0.3) 50%, 
+                    transparent 70%,
+                    hsl(var(--silver-primary) / 0.3) 80%,
+                    transparent 90%)`,
+                  clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
                 }}
                 animate={{
-                  rotate: isHovered ? 360 : 0,
+                  rotate: isHovered ? 720 : 0,
                 }}
                 transition={{ duration: 1.5, ease: "easeInOut" }}
               />
               
-              {/* Placeholder Ring Image */}
-              <div className="w-64 h-64 rounded-full bg-gradient-to-br from-[#D4AF37] via-[#FFD700] to-[#B8941F] flex items-center justify-center shadow-2xl">
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#1a1a1a] to-[#2a2a2a] flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#FFD700]" />
+              {/* Diamond Ring */}
+              <div className="w-64 h-64 flex items-center justify-center shadow-2xl" style={{clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)'}}>
+                <div className="w-full h-full bg-gradient-diamond flex items-center justify-center">
+                  <div className="w-32 h-32 bg-gradient-to-br from-ash-medium to-ash-dark flex items-center justify-center" style={{clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)'}}>
+                    <div className="w-16 h-16 bg-gradient-diamond" style={{clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)'}} />
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -121,11 +131,11 @@ const RingHeroSection = () => {
         transition={{ duration: 0.6, delay: 1.2 }}
       >
         <motion.div
-          className="w-6 h-10 border-2 border-[#D4AF37] rounded-full flex justify-center"
+          className="w-6 h-10 border-2 border-golden-primary rounded-full flex justify-center"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="w-1 h-3 bg-[#D4AF37] rounded-full mt-2" />
+          <div className="w-1 h-3 bg-golden-primary rounded-full mt-2" />
         </motion.div>
       </motion.div>
     </section>

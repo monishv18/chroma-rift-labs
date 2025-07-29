@@ -3,11 +3,13 @@ import LuxuryNavbar from "../components/navigation/LuxuryNavbar";
 import RingHeroSection from "../components/sections/RingHeroSection";
 import RingFeaturesSection from "../components/sections/RingFeaturesSection";
 import RingSpecsSection from "../components/sections/RingSpecsSection";
+import CursorAnimation from "../components/CursorAnimation";
 
 const LuxuryRing = () => {
   return (
-    <div className="relative bg-[#1a1a1a] text-white overflow-x-hidden">
+    <div className="relative bg-background text-foreground overflow-x-hidden">
       <CrystalBackground />
+      <CursorAnimation />
       <LuxuryNavbar />
       
       <main>
